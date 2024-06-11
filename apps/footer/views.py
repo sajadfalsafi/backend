@@ -1,11 +1,20 @@
+# views.py
 from rest_framework import generics
-from .models import FooterLink
-from .serializers import FooterSerializer
-# Create your views here.
+from .models import CopyRight, Social
+from .serializers import CopyRightSerializer, SocialSerializer
 
-class FooterView(generics.ListAPIView):
-    serializer_class = FooterSerializer
-    queryset = FooterLink.objects.all()
+class CopyRightListCreate(generics.ListCreateAPIView):
+    queryset = CopyRight.objects.all()
+    serializer_class = CopyRightSerializer
 
-    # def get_queryset(self):
-    #     return FooterLink.objects.filter(is_active=True)
+class CopyRightDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = CopyRight.objects.all()
+    serializer_class = CopyRightSerializer
+
+class SocialListCreate(generics.ListCreateAPIView):
+    queryset = Social.objects.all()
+    serializer_class = SocialSerializer
+
+class SocialDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Social.objects.all()
+    serializer_class = SocialSerializer

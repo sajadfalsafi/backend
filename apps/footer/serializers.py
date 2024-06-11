@@ -1,7 +1,13 @@
+# serializers.py
 from rest_framework import serializers
-from .models import FooterLink
+from .models import CopyRight, Social
 
-class FooterSerializer(serializers.ModelSerializer):
+class CopyRightSerializer(serializers.ModelSerializer):
     class Meta:
-        model = FooterLink
-        fields = ('id', 'footer', 'text', 'url')
+        model = CopyRight
+        fields = '__all__'
+
+class SocialSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Social
+        fields = '__all__'

@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,11 +28,11 @@ urlpatterns = [
     path('navbar/', include('apps.navbar.urls')),
     path('contact/', include('apps.contact.urls')),
     path('tools/', include('apps.tools.urls')),
-    # path('intro/', include('apps.introduction.urls')),
-    # path('cta/', include('apps.cta.urls')),
-
-
-
     path('footer/', include('apps.footer.urls')),
-    path('copyright/', include('apps.copyright.urls')),
+    path('intro/', include('apps.intro.urls')),
+    path('steps/', include('apps.steps.urls')),
+    path('faq/', include('apps.faq.urls')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
