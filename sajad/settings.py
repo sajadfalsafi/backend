@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-bo+7u5pcl05_56el#9auofbtk*h=k9e$ulc$m0=m8-rm(pp#q-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['sajadf.pythonanywhere.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'apps.intro.apps.IntroConfig',
     'apps.steps.apps.StepsConfig',
     'apps.faq.apps.FaqConfig',
+    'apps.cancer.apps.CancerConfig',
 ]
 
 MIDDLEWARE = [
@@ -62,7 +63,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         # 'DIRS': [],
-        'DIRS': [os.path.join(BASE_DIR, 'templates/')], 
+        'DIRS': [os.path.join(BASE_DIR, 'templates/')],
         # 'DIRS': [os.path.join(BASE_DIR, 'templates')],  # Add this line
         'APP_DIRS': True,
         'OPTIONS': {
@@ -125,9 +126,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+# STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+
+# STATIC_ROOT = '/home/sajadf/backend/staticfiles'
+STATIC_URL = '/staticfiles/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
@@ -138,11 +142,11 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.AllowAny",
     ],
-    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema", 
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
 
-# REST_FRAMEWORK = { 
+# REST_FRAMEWORK = {
 #     "DEFAULT_PERMISSION_CLASSES": [
 #         "rest_framework.permissions.IsAuthenticated",
 #     ],
@@ -150,7 +154,7 @@ REST_FRAMEWORK = {
 #         "rest_framework.authentication.SessionAuthentication",
 #         "rest_framework.authentication.TokenAuthentication",
 #     ],
-#     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema", 
+#     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 # }
 
 SPECTACULAR_SETTINGS = {
@@ -163,6 +167,7 @@ SPECTACULAR_SETTINGS = {
 CORS_ALLOWED_ORIGINS = (
     "http://localhost:3000",
     "http://localhost:8000",
+    "https://bio-abl.pages.dev",
 )
 
 CSRF_TRUSTED_ORIGINS = [

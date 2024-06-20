@@ -32,6 +32,7 @@ urlpatterns = [
     path('intro/', include('apps.intro.urls')),
     path('steps/', include('apps.steps.urls')),
     path('faq/', include('apps.faq.urls')),
+    path('cancer/', include('apps.cancer.urls')),
 ]
 
 if settings.DEBUG:

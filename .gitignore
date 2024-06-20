@@ -1,3 +1,5 @@
 virtual/
 media/
 archive/
+db.sqlite3
+apps/cancer/ml_model.pkl
